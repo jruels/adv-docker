@@ -118,7 +118,7 @@ In this example we'll be working in the freezer subsystem, which is used to sche
 
 ```bash
 #Create a cgroup
-mkdir -p /sys/fs/cgroup/freezer/mycgroup
+sudo mkdir -p /sys/fs/cgroup/freezer/mycgroup
 ```
 
 Note that your new cgroup is automatically populated by the kernel
