@@ -19,7 +19,7 @@ This container isn't just larger than it needs to be, but a /var/lib file raised
 
 You will need to clone the git repository with this command on your development box:
 ```bash
-git clone https://github.com/chrishiestand/docker-go-hello-world.git
+git clone https://github.com/jruels/docker-go-hello-world.git 
 ```
 
 See if you can improve the Dockerfile in that repository.
