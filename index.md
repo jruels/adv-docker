@@ -25,6 +25,11 @@ Lab 6: [api](labs/6-api/)
 Lab 7: [orchestration](labs/7-orchestration/)  
 
 
-Download the slides:  
+## Course Content
 [Day 1](https://www.dropbox.com/s/j6ejnnofymyo5sd/adv-docker-day1.pdf?dl=0)  
 [Day 2](https://www.dropbox.com/s/7jwomtui7rdisvo/adv-docker-day2.pdf?dl=0)
+
+## Feedback
+[Survey](http://www.metricsthatmatter.com/student/evaluation.asp?k=16324&i=VC00427713)
+
+
