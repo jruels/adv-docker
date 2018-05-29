@@ -64,7 +64,7 @@ sudo nsenter --target $PID --mount --uts --ipc --net --pid /bin/sh
 
 
 ```bash
-sudo cgcreate -a play -g memory:playground
+sudo cgcreate -a ubuntu -g memory:playground
 ```
 
 See what's in it
