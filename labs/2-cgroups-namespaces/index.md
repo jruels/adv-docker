@@ -146,7 +146,7 @@ grep freezer /proc/self/cgroup
 Now we'll use unshare again to create a new process running in a new cgroup and mount namespace
 
 ```bash
-unshare -C bash
+sudo unshare -C bash
 ```
 
 We are now running bash inside of the new namespace. Let's take a look at our freezer cgroup now:
