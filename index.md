@@ -8,7 +8,7 @@
 <tr><td>lab3</td> <td>54.219.167.127</td></tr>
 <tr><td>lab4</td> <td>54.67.109.188</td></tr>
 <tr><td>lab5</td> <td>52.53.242.140</td></tr>
-<tr><td>lab6</td> <td>13.57.25.211</td></tr>
+<tr><td>lab6</td> <td>54.215.195.103</td></tr>
 </table>
 
 ### Course work
