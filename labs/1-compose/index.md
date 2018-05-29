@@ -19,7 +19,7 @@ redis-master:
     image: k8s.gcr.io/redis:e2e
     ports:
       - "6379:6379"
- redis-slave:
+redis-slave:
     image: gcr.io/google_samples/gb-redisslave:v1
     ports:
       - "6380:6379"
