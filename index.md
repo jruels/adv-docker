@@ -11,7 +11,23 @@
 <tr><td>lab6</td> <td>54.67.20.190</td></tr>
 </table>
 
-### Course work
+### SSH 
+The SSH private key is available in `keys` directory. 
+
+To SSH into the VM please make sure permissions are set correctly on the key
+
+```
+chmod 600 /path/to/lab
+```
+
+The username for SSH is `ubuntu`
+
+```
+ssh -i /path/to/lab ubuntu@<labvmIP>
+
+```
+
+## Course work
 
 ## Day 1
 Lab 1: [compose](labs/1-compose/)  
