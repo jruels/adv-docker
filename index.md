@@ -3,12 +3,12 @@
 ## lab VMs
 <table>
 <tr><th>vm number</th><th>public ip</th></tr>
-<tr><td>lab1</td> <td>54.153.49.87</td></tr>
-<tr><td>lab2</td> <td>52.53.170.187</td></tr>
-<tr><td>lab3</td> <td>54.219.167.127</td></tr>
-<tr><td>lab4</td> <td>54.67.109.188</td></tr>
-<tr><td>lab5</td> <td>52.53.242.140</td></tr>
-<tr><td>lab6</td> <td>54.215.195.103</td></tr>
+<tr><td>lab1</td> <td>54.215.145.3</td></tr>
+<tr><td>lab2</td> <td>54.219.179.88</td></tr>
+<tr><td>lab3</td> <td>54.183.181.242</td></tr>
+<tr><td>lab4</td> <td>52.53.185.116</td></tr>
+<tr><td>lab5</td> <td>54.193.30.227</td></tr>
+<tr><td>lab6</td> <td>54.67.20.190</td></tr>
 </table>
 
 ### Course work
