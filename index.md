@@ -13,9 +13,12 @@
 
 ### Course work
 
+## Day 1
 Lab 1: [compose](labs/1-compose/)  
 Lab 2: [cgroups-namespaces](labs/2-cgroups-namespaces/)  
 Lab 3: [builds](labs/3-builds/)  
+
+## Day 2
 Lab 4: [security](labs/4-security/)  
 Lab 5: [networks](labs/5-networks/)  
 Lab 6: [api](labs/6-api/)  
