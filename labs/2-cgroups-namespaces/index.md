@@ -56,7 +56,7 @@ Now use the more general linux `nsenter` utility to enter the container's namesp
 
 
 ```bash
-PID=$(docker inspect --format {% raw %}{{.State.PID}}{% endraw %} $CID)
+PID=$(docker inspect --format {% raw %}{{.State.Pid}}{% endraw %} $CID)
 sudo nsenter --target $PID --mount --uts --ipc --net --pid /bin/sh
 ```
 
