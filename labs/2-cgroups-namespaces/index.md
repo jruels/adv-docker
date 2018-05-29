@@ -190,5 +190,3 @@ docker run --cpu-shares=2 alpine time dd if=/dev/urandom of=/dev/null bs=1M coun
 docker run --cpu-shares=1024 alpine time dd if=/dev/urandom of=/dev/null bs=1M count=2000
 ```
 
-
-credits: Inspiration and some examples taken from <https://jvns.ca/blog/2016/10/10/what-even-is-a-container/>
