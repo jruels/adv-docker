@@ -44,7 +44,7 @@ curl -s --unix-socket /var/run/docker.sock -X POST http:/v1.24/containers/d33fc3
 Note that the container exited with no error and status code 0. Let's read the logs:
 
 ```bash
-curl -s --unix-socket /var/run/docker.sock "http:/v1.24/containers/d33fc3c3988ac638272a396d8081fd312a6388b120a1a2187dae42a6b54e1e6d/logs?stdout=1"
+curl -s --output - --unix-socket /var/run/docker.sock "http:/v1.24/containers/d33fc3c3988ac638272a396d8081fd312a6388b120a1a2187dae42a6b54e1e6d/logs?stdout=1"
 ```
 
     hello world
@@ -145,7 +145,7 @@ curl -s --unix-socket /var/run/docker.sock \
 Print the container logs, again use the ID from above instead of the example id.
 
 ```bash
-curl -s --unix-socket /var/run/docker.sock "http:/v1.24/containers/bbeba6f57302/logs?stdout=1"
+curl -s --output - --unix-socket /var/run/docker.sock "http:/v1.24/containers/bbeba6f57302/logs?stdout=1"
 ```
 
     Reticulating spline 1...
@@ -171,7 +171,7 @@ CONTAINER_ID="$(docker ps -lq)"
 
 Now read that container's logs with the container id:
 ```bash
-curl -s --unix-socket /var/run/docker.sock "http:/v1.24/containers/$CONTAINER_ID/logs?stdout=1"
+curl -s --output - --unix-socket /var/run/docker.sock "http:/v1.24/containers/$CONTAINER_ID/logs?stdout=1"
 ```
 
     hello world from docker cli
