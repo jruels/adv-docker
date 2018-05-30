@@ -8,7 +8,7 @@ Run `docker info` and verify the seccomp profile in place.
 Let's enable the namespacing feature of the kernel by doing:
 
 ```bash
-echo "{\"userns-remap\": \"play\"}" | sudo tee /etc/docker/daemon.json
+echo "{\"userns-remap\": \"ubuntu\"}" | sudo tee /etc/docker/daemon.json
 ```
 
 Then we restart docker:
