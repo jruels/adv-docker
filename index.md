@@ -9,8 +9,8 @@
 <tr><td>lab4</td> <td>54.236.13.162</td></tr>
 <tr><td>lab5</td> <td>34.230.24.65</td></tr>
 <tr><td>lab6</td> <td>54.90.225.67</td></tr>
-<tr><td>lab6</td> <td>35.173.179.86</td></tr>
-<tr><td>lab6</td> <td>35.153.139.54</td></tr>
+<tr><td>lab7</td> <td>35.173.179.86</td></tr>
+<tr><td>lab8</td> <td>35.153.139.54</td></tr>
 </table>
 
 ### SSH 
