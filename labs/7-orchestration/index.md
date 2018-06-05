@@ -349,7 +349,7 @@ docker service ps redis
 
 ## Drain a Swarm Node
 
-In earlier steps of the tutorial, our nodee has been running with `ACTIVE` availability. The swarm manager can assign tasks to any `ACTIVE` node, so up to now our node has been available to receive tasks.
+In earlier steps of the tutorial, our node has been running with `ACTIVE` availability. The swarm manager can assign tasks to any `ACTIVE` node, so up to now our node has been available to receive tasks.
 
 Sometimes, such as planned maintenance times, you need to set a node to `DRAIN` availability. `DRAIN` availability prevents a node from receiving new tasks from the swarm manager. It also means the manager stops tasks running on the node and launches replica tasks on a node with `ACTIVE` availability.
 
