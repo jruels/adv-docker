@@ -83,7 +83,7 @@ Now, let's add a `./layer0` directory and recreate our overlayfs mount with laye
 
 ```bash
 mkdir ./layer0
-sudo mount -t overlay -o lowerdir=./layer1:./layer0,upperdir=./layer2,work=./work none ./merged
+sudo mount -t overlay overlay -o lowerdir=./layer1:./layer0,upperdir=./layer2,workdir=./work merged
 ```
 
 Notice the addition of `:./layer0` to the mount command.
@@ -99,7 +99,7 @@ cat ./merged/qux
 What's in `./merged/qux`? Re-run the mount command with the lower layers reversed and inspect `./merged/qux` again.
 
 ```bash
-sudo mount -t overlay -o lowerdir=./layer0:./layer1,upperdir=./layer2,work=./work none ./merged
+sudo mount -t overlay overlay -o lowerdir=./layer0:./layer1,upperdir=./layer2,workdir=./work merged
 ```
 
 ### Docker and Overlayfs
@@ -116,7 +116,7 @@ Docker has an `inspect` commnand that can be used to retrieve a json representat
 Let's use this command to discover the layers that make up the redis image, as well as the effective command that will be used to mount and render the image's filesystem.
 
 ```bash
-docker inspect redis | jq -r '.[].GraphDriver'
+docker inspect redis:4.0.11 | jq -r '.[].GraphDriver'
 {
   "Data": {
     "LowerDir": "/var/lib/docker/overlay2/8cc191d7e8944039a2ddb8cc17fc30f6bfa0aa8efe77706b987f381daf5561dc/diff:/var/lib/docker/overlay2/526988f6a76344f880e62dc5fd84263ee753ad0ead2dbb1417d31bf2a90267af/diff:/var/lib/docker/overlay2/91319dd0de72b2a4f6268959ee75c245b28cd1ddda3f1fb6833493ab759afc65/diff:/var/lib/docker/overlay2/8a9e2f0ebf929840f3130c9ad3e17d051f3c1ea0c54acbc56ff888cc8fb59838/diff:/var/lib/docker/overlay2/1812eed1e977a42f10daa960a16b19e96503f88c02529bc370900851a9c45df9/diff",
