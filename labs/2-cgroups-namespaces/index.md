@@ -134,7 +134,7 @@ echo $$
 
 Add your shell to the cgroup
 ```bash
-echo 942 > sudo tee /sys/fs/cgroup/freezer/mycgroup/cgroup.procs
+echo 942 | sudo tee /sys/fs/cgroup/freezer/mycgroup/cgroup.procs
 ```
 
 Verify your shell is now in the cgroup
