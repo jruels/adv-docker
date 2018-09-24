@@ -4,10 +4,10 @@ Use overlayfs to mount directories and full filesystems
 
 ### Overlay two directories
 
-Create a directory to work within. In this example, the directory is `/mysandboxdir`.
+Create a directory to work within. In this example, the directory is `~/mysandbox`.
 
 ```bash
-mkdir /mysandboxdir && cd /mysandboxdir
+mkdir ~/mysandboxdir && cd ~/mysandboxdir
 ```
 
 Create directories representing the lower, upper, working, and destination merged directories
@@ -25,7 +25,7 @@ Let's now use these directories to create our own overlay mount.
 Create a mount of type `overlay`, providing arguments defining the desired lower, upper, and overlay directory
 
 ```bash
-sudo mount -t overlay -o lowerdir=./layer1,upperdir=./layer2,work=./work none ./merged
+sudo mount -t overlay overlay -o lowerdir=./layer1,upperdir=./layer2,workdir=./work merged
 ```
 
 Touch a file in `./layer1`. We'll use this file to demonstrate how certain I/O scenarios affect the layers.
