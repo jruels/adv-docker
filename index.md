@@ -3,14 +3,13 @@
 ## lab VMs
 <table>
 <tr><th>vm number</th><th>public ip</th></tr>
-<tr><td>lab1</td> <td>34.239.183.99</td></tr>
-<tr><td>lab2</td> <td>34.227.68.89</td></tr>
-<tr><td>lab3</td> <td>34.207.238.200</td></tr>
-<tr><td>lab4</td> <td>54.236.13.162</td></tr>
-<tr><td>lab5</td> <td>34.230.24.65</td></tr>
-<tr><td>lab6</td> <td>54.90.225.67</td></tr>
-<tr><td>lab7</td> <td>35.173.179.86</td></tr>
-<tr><td>lab8</td> <td>35.153.139.54</td></tr>
+<tr><td>lab1</td> <td>35.178.180.210</td></tr>
+<tr><td>lab2</td> <td>18.130.250.20</td></tr>
+<tr><td>lab3</td> <td>18.130.231.4</td></tr>
+<tr><td>lab4</td> <td>52.56.136.61</td></tr>
+<tr><td>lab5</td> <td>35.178.205.155</td></tr>
+<tr><td>lab6</td> <td>52.56.218.173</td></tr>
+<tr><td>instructor</td> <td>52.56.158.75</td></tr>
 </table>
 
 ### SSH 
