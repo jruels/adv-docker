@@ -16,13 +16,21 @@ Create directories representing the lower, upper, working, and destination merge
 mkdir work layer1 layer2 merged
 ```
 
-* layer1 represents the lower branch in the merged layer. This directory is not read-only, but modifications to the overlay will not affect the lower branch.
-* layer2 represents the upper branch in the merged layer. This directory is also not read-only. Any modifications to the overlay will be represented here.
-* work represents a location where files are prepared before becoming visible in the overlay directory
-* merged represents the final result of overlaying layer1 and layer2
+These directories will be used throughout this lab to demonstrate how overlayfs merges multiple
+directory trees to present a single, unified directory.
+
+First, let's break down each of the directories.
+
+* The layer1 directory represents the `lowerdir` in the mount command
+  * Files and directories created here will be present in the `merged` directory
+* The layer2 directory represents the `upperdir` in the mount command
+  * Files and directories that exist in both `upperdir` and `lowerdir` will take the contents of `upperdir` as priiority
+  * Any file operations that occur in the `merged` directory will be copied here
+* the work directory represents a location where files are prepared before becoming visible in the merged directory
+* the merged directory represents the final result of merging layer1 and layer2 using the rules above
 
 Let's now use these directories to create our own overlay mount.
-Create a mount of type `overlay`, providing arguments defining the desired lower, upper, and overlay directory
+Create a mount of type `overlay`, providing arguments defining the desired lower, upper, and merged directory
 
 ```bash
 sudo mount -t overlay overlay -o lowerdir=./layer1,upperdir=./layer2,workdir=./work merged
@@ -34,7 +42,7 @@ Touch a file in `./layer1`. We'll use this file to demonstrate how certain I/O s
 touch ./layer1/foo
 ```
 
-Notice that a file named `foo` now exists in `./merged`. 
+Notice that a file named `foo` now exists in `./merged`.
 
 Now, touch a file in `./merged`.
 
@@ -79,14 +87,17 @@ This instructs overlayfs to ignore `./layer1/baz` and ensure the whiteout file i
 
 ### Overlaying Multiple Layers
 
-Now, let's add a `./layer0` directory and recreate our overlayfs mount with layer0 as the lowest priority. 
+Overlayfs allows you to specify multiple `lowerdir` directories. When multiple directories are listed,
+the rightmost directory is evaluated first, moving left through the list.
+
+Let's add a `./layer0` directory and recreate our overlayfs mount with layer0 as the lowest priority.
 
 ```bash
 mkdir ./layer0
 sudo mount -t overlay overlay -o lowerdir=./layer1:./layer0,upperdir=./layer2,workdir=./work merged
 ```
 
-Notice the addition of `:./layer0` to the mount command.
+Notice lowerdir = `./layer1:./layer0` in the mount command.
 
 Create files in `./layer0` and `./layer1` to see results in `./merged`
 
@@ -101,6 +112,8 @@ What's in `./merged/qux`? Re-run the mount command with the lower layers reverse
 ```bash
 sudo mount -t overlay overlay -o lowerdir=./layer0:./layer1,upperdir=./layer2,workdir=./work merged
 ```
+
+When the directory order is reversed, a new version of `qux` takes precedence and now exists in the `merged` directory.
 
 ### Docker and Overlayfs
 
