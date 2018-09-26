@@ -264,7 +264,7 @@ docker service create \
 
     Error response from daemon: rpc error: code = InvalidArgument desc = port '80' is already in use by service 'my-nginx-default-net' (p8qcmhmbxq2fbc7k8co5hlfnc) as an ingress port
 
-What does this happen? It's because of the mesh network created by the ingress publish mode. The default publish mode of ingress, which is used when you do not specify a mode for the --publish flag, means that if you browse to port 80 on a node you will be connected to port 80 on one of the 2 service tasks, even if no tasks are currently running on the node you browse to. If you want to publish the port using host mode, you can add mode=host to the --publish output. However, you should also use --mode global instead of --replicas=5 in this case, since only one service task can bind a given port on a given node.
+Why does this happen? It's because of the mesh network created by the ingress publish mode. The default publish mode of ingress, which is used when you do not specify a mode for the --publish flag, means that if you browse to port 80 on a node you will be connected to port 80 on one of the 2 service tasks, even if no tasks are currently running on the node you browse to. If you want to publish the port using host mode, you can add mode=host to the --publish output. However, you should also use --mode global instead of --replicas=5 in this case, since only one service task can bind a given port on a given node.
 
 Let's try that again but we'll publish on a different node port.
 
