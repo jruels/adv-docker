@@ -104,7 +104,7 @@ veth interfaces come in pairs. Where is the other side? Notice the name of the i
 Let's try and learn about our namespaces
 
 ```bash
-sudo ip netns
+ip netns
 ```
 
     [nothing]
