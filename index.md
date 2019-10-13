@@ -1,16 +1,7 @@
 # Advanced Docker Course Site
 
 ## lab VMs
-<table>
-<tr><th>vm number</th><th>public ip</th></tr>
-<tr><td>lab1</td> <td>35.178.180.210</td></tr>
-<tr><td>lab2</td> <td>18.130.250.20</td></tr>
-<tr><td>lab3</td> <td>18.130.231.4</td></tr>
-<tr><td>lab4</td> <td>52.56.136.61</td></tr>
-<tr><td>lab5</td> <td>35.178.205.155</td></tr>
-<tr><td>lab6</td> <td>52.56.218.173</td></tr>
-<tr><td>instructor</td> <td>52.56.158.75</td></tr>
-</table>
+Instructor will provide lab information
 
 ### SSH 
 The SSH private key is available in `keys` directory. 
@@ -47,6 +38,3 @@ Lab 8: [orchestration](labs/8-orchestration/)
 [Day 1](https://www.dropbox.com/s/j6ejnnofymyo5sd/adv-docker-day1.pdf?dl=0)  
 [Day 2](https://www.dropbox.com/s/7jwomtui7rdisvo/adv-docker-day2.pdf?dl=0)
 
-
-## Survey
-[Please provide feedback](http://www.metricsthatmatter.com/student/evaluation.asp?k=16324&i=ILT00416277)
