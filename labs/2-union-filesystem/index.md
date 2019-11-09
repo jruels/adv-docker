@@ -24,7 +24,7 @@ First, let's break down each of the directories.
 * The layer1 directory represents the `lowerdir` in the mount command
   * Files and directories created here will be present in the `merged` directory
 * The layer2 directory represents the `upperdir` in the mount command
-  * Files and directories that exist in both `upperdir` and `lowerdir` will take the contents of `upperdir` as priiority
+  * Files and directories that exist in both `upperdir` and `lowerdir` will take the contents of `upperdir` as priority
   * Any file operations that occur in the `merged` directory will be copied here
 * the work directory represents a location where files are prepared before becoming visible in the merged directory
 * the merged directory represents the final result of merging layer1 and layer2 using the rules above
