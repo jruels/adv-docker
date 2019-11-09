@@ -77,9 +77,9 @@ You probably found something like this in `./layer2`
 
 ```bash
 $ ls -l layer2
-c--------- 1 root root 0, 0 Sep 19 04:45 bar
--rw-r--r-- 1 root root    0 Sep 19 04:33 baz
--rw-r--r-- 1 root root   22 Sep 19 04:34 foo
+-rw-r--r-- 1 1 root root 0, 0 Sep 19 04:45 bar
+c---------     root root    0 Sep 19 04:33 baz
+-rw-r--r-- 1   root root   22 Sep 19 04:34 foo
 ```
 
 When a file is deleted from `./merged` that exists in `./layer1`, a _whiteout_ character device file is generated and stored in `./layer2`.
