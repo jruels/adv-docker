@@ -93,7 +93,7 @@ Let's add a `./layer0` directory and recreate our overlayfs mount with layer0 as
 
 ```bash
 mkdir ./layer0
-sudo mount -t overlay overlay -o lowerdir=./layer1:./layer0,upperdir=./layer2,workdir=./work merged
+sudo mount -t overlay overlay -o lowerdir=./layer0:./layer1,upperdir=./layer2,workdir=./work merged
 ```
 
 Notice lowerdir = `./layer1:./layer0` in the mount command.
