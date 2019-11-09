@@ -124,7 +124,7 @@ Make sure we have an image available on the local docker host by grabbing the re
 docker pull redis:4.0.11
 ```
 
-Docker has an `inspect` commnand that can be used to retrieve a json representation of an image's metadata.
+Docker has an `inspect` command that can be used to retrieve a json representation of an image's metadata.
 Let's use this command to discover the layers that make up the redis image, as well as the effective command that will be used to mount and render the image's filesystem.
 
 ```bash
