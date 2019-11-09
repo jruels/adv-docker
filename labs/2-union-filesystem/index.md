@@ -87,8 +87,7 @@ This instructs overlayfs to ignore `./layer1/baz` and ensure the whiteout file i
 
 ### Overlaying Multiple Layers
 
-Overlayfs allows you to specify multiple `lowerdir` directories. When multiple directories are listed,
-the rightmost directory is evaluated first, moving left through the list.
+Overlayfs allows you to specify multiple `lowerdir` directories. The specified lower directories will be stacked beginning from the rightmost one and going left.
 
 Let's add a `./layer0` directory and recreate our overlayfs mount with layer0 as the lowest priority.
 
