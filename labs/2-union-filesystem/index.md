@@ -110,7 +110,7 @@ cat ./merged/qux
 What's in `./merged/qux`? Re-run the mount command with the lower layers reversed and inspect `./merged/qux` again.
 
 ```bash
-sudo mount -t overlay overlay -o lowerdir=./layer0:./layer1,upperdir=./layer2,workdir=./work merged
+sudo mount -t overlay overlay -o lowerdir=./layer1:./layer0,upperdir=./layer2,workdir=./work merged
 ```
 
 When the directory order is reversed, a new version of `qux` takes precedence and now exists in the `merged` directory.
