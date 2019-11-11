@@ -60,6 +60,8 @@ PID=$(docker inspect --format {% raw %}{{.State.Pid}}{% endraw %} $CID)
 sudo nsenter --target $PID --mount --uts --ipc --net --pid /bin/sh
 ```
 
+Look around, and `exit` when done.
+
 ## Explore the memory cgroup limits
 
 
