@@ -1,7 +1,7 @@
 # Advanced Docker Course Site
 
 ## lab VMs
-http://bit.ly/adv-docker-vms
+[http://bit.ly/adv-docker-vms](http://bit.ly/adv-docker-vms)
 
 ### SSH 
 The SSH private key is available in `keys` directory. 
