@@ -96,7 +96,7 @@ mkdir ./layer0
 sudo mount -t overlay overlay -o lowerdir=./layer0:./layer1,upperdir=./layer2,workdir=./work merged
 ```
 
-Notice lowerdir = `./layer1:./layer0` in the mount command.
+Notice lowerdir = `./layer0:./layer1` in the mount command.
 
 Create files in `./layer0` and `./layer1` to see results in `./merged`
 
