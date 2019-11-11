@@ -24,7 +24,31 @@ docker run -d nginx
 
 Look at the userids from the host perspective:
 ```
-ps aux |grep nginx
+ps aux |grep [n]ginx
+```
+
+```
+ubuntu@ip-172-31-25-93:~$ ps aux |grep [n]ginx
+165536   14846  0.0  0.1  10628  5304 ?        Ss   22:10   0:00 nginx: master process nginx -g daemon off;
+```
+
+To figure out which id the container is running as check out the uid and gid files. 
+
+`grep <UID from above> /etc/subuid`
+
+```
+ubuntu@ip-172-31-25-93:~$ grep 165536 /etc/subuid
+ubuntu:165536:65536
+```
+
+To figure out the group run 
+```
+grep <UID from above> /etc/subgid
+```
+
+```
+ubuntu@ip-172-31-25-93:~$ grep 165536 /etc/subgid
+ubuntu:165536:65536
 ```
 
 You can disable usernamespacing by deleting the daemon file and restarting docker:
