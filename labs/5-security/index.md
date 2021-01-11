@@ -87,7 +87,7 @@ unset DOCKER_CONTENT_TRUST
 
 ## Running as non-root
 
-You may recall from lab 3 that you can build a Go program as a static binary and, using multi-stage builds, insert it on the scratch image like so:
+You may recall that you can build a Go program as a static binary and, using multi-stage builds, insert it on the scratch image like so:
 
 ```
 FROM golang:1.9-alpine
@@ -128,6 +128,10 @@ Note the difference between the output on the host and inside the container. You
 
 ```
 docker run --cap-drop=net_raw  -it debian /bin/sh -c "apt-get update && apt-get install -qq libcap2-bin && bash"
+```
+And once again run:
+```
+/sbin/capsh --print
 ```
 
 Note the dropped capability is missing from the output inside the container.

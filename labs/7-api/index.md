@@ -2,10 +2,10 @@
 
 Run `docker info` to see what plugins are running.
 
-    Plugins:
-     Volume: local
-     Network: bridge host macvlan null overlay
-     Log: awslogs fluentd gcplogs gelf journald json-file logentries splunk syslog
+  Plugins:
+    Volume: local
+    Network: bridge host ipvlan macvlan null overlay
+    Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
 
 ## Events and API
 
@@ -21,7 +21,7 @@ Now in the other window run these commands against the docker engine API. For ev
 ### Pull an image
 ```bash
 curl -s --unix-socket /var/run/docker.sock \
-  -X POST "http:/v1.24/images/create?fromImage=alpine" | jq
+  -X POST "http:/v1.41/images/create?fromImage=alpine" | jq
 ```
 
 ### Run a container
@@ -30,21 +30,21 @@ Note that unlike the cli command `docker run`, this api command does not automat
 ```bash
 curl -s --unix-socket /var/run/docker.sock -H "Content-Type: application/json" \
   -d '{"Image": "alpine", "Cmd": ["echo", "hello world"]}' \
-  -X POST http:/v1.24/containers/create | jq
+  -X POST http:/v1.41/containers/create | jq
 ```
 
 Copy the container ID from the previous output for use in the subsequent commands.
 
 ```bash
-curl -s --unix-socket /var/run/docker.sock -X POST http:/v1.24/containers/d33fc3c3988ac638272a396d8081fd312a6388b120a1a2187dae42a6b54e1e6d/start
+curl --unix-socket /var/run/docker.sock -X POST http:/v1.41/containers/d33fc3c3988ac638272a396d8081fd312a6388b120a1a2187dae42a6b54e1e6d/start
 
-curl -s --unix-socket /var/run/docker.sock -X POST http:/v1.24/containers/d33fc3c3988ac638272a396d8081fd312a6388b120a1a2187dae42a6b54e1e6d/wait
+curl --unix-socket /var/run/docker.sock -X POST http:/v1.41/containers/d33fc3c3988ac638272a396d8081fd312a6388b120a1a2187dae42a6b54e1e6d/wait
 ```
 
 Note that the container exited with no error and status code 0. Let's read the logs:
 
 ```bash
-curl -s --output - --unix-socket /var/run/docker.sock "http:/v1.24/containers/d33fc3c3988ac638272a396d8081fd312a6388b120a1a2187dae42a6b54e1e6d/logs?stdout=1"
+curl --unix-socket /var/run/docker.sock "http:/v1.41/containers/d33fc3c3988ac638272a396d8081fd312a6388b120a1a2187dae42a6b54e1e6d/logs?stdout=1" --output -
 ```
 
     hello world
@@ -58,12 +58,12 @@ Pull the image and create the container.
 
 # pull first
 curl -s --unix-socket /var/run/docker.sock \
-  -X POST "http:/v1.24/images/create?fromImage=bfirsh/reticulate-splines" | jq
+  -X POST "http:/v1.41/images/create?fromImage=bfirsh/reticulate-splines" | jq
 
 
 curl -s --unix-socket /var/run/docker.sock -H "Content-Type: application/json" \
   -d '{"Image": "bfirsh/reticulate-splines"}' \
-  -X POST http:/v1.24/containers/create | jq
+  -X POST http:/v1.41/containers/create | jq
 ```
 
 ```json
@@ -76,12 +76,12 @@ curl -s --unix-socket /var/run/docker.sock -H "Content-Type: application/json" \
 Start the container
 ```bash
 curl -s --unix-socket /var/run/docker.sock -H "Content-Type: application/json" \
-    -X POST http:/v1.24/containers/bbeba6f57302a5a6d29e053c0ff0702738cf5e060857799cac9256b151e47d32/start | jq
+    -X POST http:/v1.41/containers/bbeba6f57302a5a6d29e053c0ff0702738cf5e060857799cac9256b151e47d32/start
 ```
 
 ### List the containers
 ```bash
-curl -s --unix-socket /var/run/docker.sock http:/v1.24/containers/json | jq
+curl -s --unix-socket /var/run/docker.sock http:/v1.41/containers/json | jq
 ```
 
 ```json
@@ -139,13 +139,13 @@ docker ps
 Be sure to use a container id from a previous step:
 ```bash
 curl -s --unix-socket /var/run/docker.sock \
-  -X POST http:/v1.24/containers/bbeba6f57302/stop
+  -X POST http:/v1.41/containers/bbeba6f57302/stop
 ```
 
 Print the container logs, again use the ID from above instead of the example id.
 
 ```bash
-curl -s --output - --unix-socket /var/run/docker.sock "http:/v1.24/containers/bbeba6f57302/logs?stdout=1"
+curl -s --output - --unix-socket /var/run/docker.sock "http:/v1.41/containers/bbeba6f57302/logs?stdout=1"
 ```
 
     Reticulating spline 1...
@@ -171,14 +171,14 @@ CONTAINER_ID="$(docker ps -lq)"
 
 Now read that container's logs with the container id:
 ```bash
-curl -s --output - --unix-socket /var/run/docker.sock "http:/v1.24/containers/$CONTAINER_ID/logs?stdout=1"
+curl -s --output - --unix-socket /var/run/docker.sock "http:/v1.41/containers/$CONTAINER_ID/logs?stdout=1"
 ```
 
     hello world from docker cli
 
 ### List all images
 ```bash
-curl -s --unix-socket /var/run/docker.sock http:/v1.24/images/json | jq
+curl -s --unix-socket /var/run/docker.sock http:/v1.41/images/json | jq
 ```
 
 ```json
@@ -208,5 +208,14 @@ docker run -d alpine touch /helloworld
 CONTAINER_ID="$(docker ps -lq)"
 
 curl -s --unix-socket /var/run/docker.sock\
-  -X POST "http:/v1.24/commit?container=$CONTAINER_ID&repo=helloworld"
+  -X POST "http:/v1.41/commit?container=$CONTAINER_ID&repo=helloworld"
+```
+Now confirm the image was committed 
+```bash
+docker images
+```
+
+```
+    REPOSITORY                            TAG          IMAGE ID       CREATED          SIZE
+    helloworld                            latest       ca11fc2d824c   22 seconds ago   5.58MB
 ```
