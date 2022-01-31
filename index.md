@@ -3,21 +3,7 @@
 ## lab VMs
 [http://bit.ly/adv-docker-vms](http://bit.ly/adv-docker-vms)
 
-### SSH 
-The SSH private key is available in `keys` directory. 
-
-To SSH into the VM please make sure permissions are set correctly on the key
-
-```
-chmod 600 /path/to/lab
-```
-
-The username for SSH is `ubuntu`
-
-```
-ssh -i /path/to/lab ubuntu@<labvmIP>
-
-```
+To access the lab servers please follow the [Setup Guide](labs/0-setup/)
 
 ## Course work
 
