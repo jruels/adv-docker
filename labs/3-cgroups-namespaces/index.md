@@ -180,17 +180,4 @@ This verifies that your namespaced process is in the cgroup "mycgroup", but your
 
 How can the namespaced shell above figure what cgroup it is in? (hint: despite the cgroup namespace with relative path, there is still at least one way)
 
-## Docker and CPU limits
-
-### How performant are these cpu bound processes?
-
-Try opening 2 shells and starting these commands at the same time. Does one finish notably faster?
-
-```bash
-docker run --cpu-shares=2 alpine time dd if=/dev/urandom of=/dev/null bs=1M count=2000
-```
-
-```bash
-docker run --cpu-shares=1024 alpine time dd if=/dev/urandom of=/dev/null bs=1M count=2000
-```
-
+# Congrats
