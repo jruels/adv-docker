@@ -112,8 +112,13 @@ sudo ip netns
 Hrm, no output. Why not? Docker by default doesn't share namespace information for standard linux tools to read, but we can fix this with a simple symlink.
 
 ```bash
-sudo ln -s /var/run/docker/netns /var/run/netns
+sudo ln -Ts /var/run/docker/netns /var/run/netns
 ```
+
+If you receive an error that `/var/run/netns` already exists, delete it and re-run the symlink. 
+```bash
+sudo rm -rf /var/run/netns
+``````
 
 Let's try that again
 

@@ -383,7 +383,7 @@ docker service ps redis
     rs5rfnuoutf3         \_ redis.3         redis:4             lab2                Shutdown            Shutdown 2 minutes ago
 
 
-Run docker node update --availability drain <NODE-ID> to drain a node
+Run docker node update --availability drain <NODE-ID> to drain a node. Remember to replace `lab2` with the name or ID of your node.
 
 ```bash
 docker node update --availability drain lab2
