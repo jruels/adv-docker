@@ -1,7 +1,7 @@
 # Advanced Docker Course Site
 
 ## Content
-Slides: https://www.dropbox.com/sh/vgahn1f192jzd9r/AAAMbzdWS7Nhtvy5gxe9Vq53a?dl=0
+[Access the slides](https://www.dropbox.com/sh/vgahn1f192jzd9r/AAAMbzdWS7Nhtvy5gxe9Vq53a?dl=0)
 
 ## lab VMs
 [http://bit.ly/adv-docker-vms](http://bit.ly/adv-docker-vms)
